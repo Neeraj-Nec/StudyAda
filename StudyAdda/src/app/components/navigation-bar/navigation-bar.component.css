@@ -1,0 +1,7 @@
+.navbar-light .navbar-nav .nav-link {
+    color: black; /* Set the color to white or any other light color */
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: white; /* Set the color of the toggle icon */
+}
