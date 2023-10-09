@@ -1,54 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Your Education Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 56px; /* Adjust this value to accommodate the height of your fixed navbar */
+        }
+
+   
+
+        /* Optional: Add some styles to the image */
+     
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: white;">
+    <!-- Add an image to the navbar brand -->
+    <a class="navbar-brand" href="#">
+        <img src="https://play-lh.googleusercontent.com/Kzp01n32i7WaEBCO7M6MNtJp0esfJMYElF9ncuaPiSh01SfgvUN8Xse7uEr2HETzjA=w416-h235-rw" alt="Study Adda Logo">
+        Study Adda
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cources</a>
+                <a class="nav-link" href="#">Courses</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="#">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="#">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contacts</a>
+                <a class="nav-link" href="#">Register</a>
             </li>
         </ul>
-        
-        <!-- Login/Signup button -->
-        <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="button" data-toggle="modal" data-target="#loginSignupModal">
-            Login/Signup
-        </button>
-
-        <!-- Search bar -->
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 
-<!-- Login/Signup Modal -->
-<div class="modal" id="loginSignupModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Login/Signup</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>This is where your login/signup form would go.</p>
-            </div>
-        </div>
+<!-- Add a border around the Jumbotron to make it easier to see -->
+<div class="jumbotron jumbotron-fluid border">
+    <div class="container">
+        <h1 class="display-4">Welcome to Our Education Website</h1>
+        <p class="lead" style="font-size: x-large;">Empowering Minds, Transforming Lives.</p>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

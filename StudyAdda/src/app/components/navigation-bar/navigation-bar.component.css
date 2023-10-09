@@ -1,7 +1,28 @@
-.navbar-light .navbar-nav .nav-link {
-    color: black; /* Set the color to white or any other light color */
+.fixed-top {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.nav-item a {
+    font-weight: bold;
 }
 
-.navbar-light .navbar-toggler-icon {
-    background-color: white; /* Set the color of the toggle icon */
+
+body {
+    padding-top: 56px; /* Adjust this value to accommodate the height of your fixed navbar */
+}
+
+.fixed-top {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    width: 100%; /* Set the width to your desired value */
+    padding: 1rem; /* Adjust the padding as needed */
+}
+.navbar-brand img {
+    max-height: 40px; /* Adjust the max height as needed */
+    margin-right: 10px; /* Optional margin for spacing */
 }

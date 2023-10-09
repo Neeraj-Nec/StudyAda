@@ -1,0 +1,17 @@
+.footer {
+    margin-top: 75px;
+    bottom: 0;
+    width: 100%;
+    background-color:  #e0e0eb;
+    color: white;
+    padding: 10px;
+}
+
+.social-icons {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  footer .col-md-4  {
+    color: black;
+  }
