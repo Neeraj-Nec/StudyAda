@@ -403,64 +403,61 @@ response_endpoint: [string]
 [source,json]
 ----
 {
-    "face_templates":[
+    "face_templates": [
         {
-            "status":{
-                "success":true
+            "face_attributes": {
+                "age": 0,
+                "eye_distance": 124,
+                "face_pan": 4,
+                "face_rect": {
+                    "bottom": 436,
+                    "left": 148,
+                    "right": 381,
+                    "top": 203
+                },
+                "face_roll": 2,
+                "face_score": 99,
+                "face_tilt": 3,
+                "frontal_face_score": 56,
+                "gaze_horizontal": 1,
+                "gaze_vertical": 4,
+                "gender_score": 0,
+                "glass_confidence": 1,
+                "head_rect": {
+                    "bottom": 481,
+                    "left": 106,
+                    "right": 420,
+                    "top": 97
+                },
+                "jpg_quality": 72,
+                "left_eye": {
+                    "x": 323,
+                    "y": 255
+                },
+                "left_eye_closure_score": 10,
+                "liveness": 0,
+                "mask_confidence": 22,
+                "quality": 95,
+                "right_eye": {
+                    "x": 199,
+                    "y": 261
+                },
+                "right_eye_closure_score": 10,
+                "smile_score": 60,
+                "sunglass_confidence": 1
             },
-            "id":"photo-id-1",
-            "face_attributes":{
-                "face_score":99,
-                "frontal_face_score":53,
-                "quality":87,
-                "jpg_quality":74,
-                "face_pan":-5,
-                "face_roll":-2,
-                "face_tilt":-6,
-                "face_rect":{
-                    "left":234,
-                    "right":326,
-                    "top":119,
-                    "bottom":211
-                },
-                "head_rect":{
-                    "left":217,
-                    "right":341,
-                    "top":78,
-                    "bottom":228
-                },
-                "left_eye":{
-                    "x":301,
-                    "y":139
-                },
-                "right_eye":{
-                    "x":254,
-                    "y":143
-                },
-                "eye_distance":47,
-                "left_eye_closure_score":10,
-                "right_eye_closure_score":10,
-                "smile_score":85,
-                "glass_confidence":0,
-                "sunglass_confidence":0,
-                "mask_confidence":13,
-                "gaze_vertical":0,
-                "gaze_horizontal":0,
-                "gender_score":0,
-                "age":0,
-                "liveness":0
-            },
-            "face_template":"base64 encoded data",
-            "mask_template":"base64 encoded data"
-        },
-        {
-            "status":{
-                "success":false,
-                "error":"face not detected"
-            },
-            "id":"photo-id-2"
+            "face_template": "base64 encoded data",
+            "id": "photo-id-1",
+            "mask_template": "",
+            "status": {
+                "success": true
+            }
         }
-    ]
+    ],
+    "job_id": "",
+    "status": {
+        "success": true
+    }
 }
 ----
 
@@ -581,54 +578,62 @@ iris_parameters: [ Json object containing array of below key value pairs ]
 [source,json]
 ----
 {
-  "iris_templates": [
-    {
-      "id": "RightEyeS5000R00",
-      "iris_attributes": {
-        "iris": {
-          "a": 91,
-          "b": 91,
-          "t": 0,
-          "x": 264,
-          "y": 259
-        },
-        "pupil": {
-          "a": 33,
-          "b": 33,
-          "t": 38384,
-          "x": 264,
-          "y": 259
-        },
-        "upper_eyelid": {
-          "a": 33,
-          "b": 33,
-          "t": 38384,
-          "x": 264,
-          "y": 259
-        },
-        "lower_eyelid": {
-          "a": 91,
-          "b": 91,
-          "t": 0,
-          "x": 264,
-          "y": 259
-        },
-        "quality": {
-            "focus_score": 97,
-            "iris_quality": 58,
-            "motion_blur_score": 66,
-            "usable_area_ratio": 100
-        },
-        "liveness": 22,
-        "cosmetic_contact_lens": 0
-      },
-      "iris_position": "unknown",
-      "iris_template": "base64 encoded data",
-      "status": {
+    "iris_templates": [
+        {
+            "id": "RightEyeS5000R00",
+            "iris_attributes": {
+                "cosmetic_contact_lens": 3,
+                "iris": {
+                    "a": 92,
+                    "b": 92,
+                    "t": 0,
+                    "x": 283,
+                    "y": 232
+                },
+                "liveness": 0,
+                "liveness_3d": 0,
+                "lower_eyelid": {
+                    "a": 504,
+                    "b": 504,
+                    "t": 0,
+                    "x": 283,
+                    "y": -198
+                },
+                "pupil": {
+                    "a": 34,
+                    "b": 34,
+                    "t": 0,
+                    "x": 281,
+                    "y": 232
+                },
+                "quality": {
+                    "focus_score": 0,
+                    "influential_factor": 0,
+                    "iris_pupil_ratio": 0,
+                    "iris_quality": 0,
+                    "motion_blur_score": 0,
+                    "total_image_quality": 0,
+                    "usable_area_ratio": 0
+                },
+                "upper_eyelid": {
+                    "a": 184,
+                    "b": 184,
+                    "t": 0,
+                    "x": 290,
+                    "y": 357
+                }
+            },
+            "iris_position": "iris_unknown",
+            "iris_template": "base64 encoded data",
+            "status": {
+                "success": true
+            }
+        }
+    ],
+    "job_id": "string",
+    "status": {
         "success": true
-      }
     }
-  ]
 }
 ----
 * Error Response
@@ -676,7 +681,6 @@ curl -k -X PUT --header 'Content-Type: application/json' --header 'Accept: appli
 Multiple images can be passed to the API, each identified by an ID. The response is populated
 with the details of the iris templates and iris attributes per image.
 
-=== Tenprint finger
 
 === Latent Finger
 
@@ -791,43 +795,199 @@ extract_url_part: [string]
 [source,json]
 ----
 {
-    "status": {
-        "success": true,
-        "code": "200",
-        "error": "",
-        "error_detail": ""
-    },
-    "job_id": "example-job-id",
-    "id": "example-finger-id",
-    "latent_template": "base64_encoded_latent_template",
     "finger_position": "unknown",
+    "id": "example-job-id",
     "inner_templates": [
         {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
             "index": 0,
-            "minutiae_count": 100,
-            "data": "base64_encoded_inner_template",
-            "algorithm": "lfml"
-        }
-    ],
-    "cropped_finger_images": [
+            "minutiae_count": 63
+        },
         {
-            "finger_position": "unknown",
-            "cropped_image_format": "wsq",
-            "finger_image": "base64_encoded_cropped_image"
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 1,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 2,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 3,
+            "minutiae_count": 60
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 6,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 7,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 8,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 9,
+            "minutiae_count": 61
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 10,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 11,
+            "minutiae_count": 61
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 12,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 13,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 14,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 15,
+            "minutiae_count": 61
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 16,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 17,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 18,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 19,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 20,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 21,
+            "minutiae_count": 61
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 22,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 23,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 24,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 25,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 26,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 27,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 28,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 29,
+            "minutiae_count": 62
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 30,
+            "minutiae_count": 63
+        },
+        {
+            "algorithm": "FINGER_PC2",
+            "data": "base64 encoded data",
+            "index": 31,
+            "minutiae_count": 63
         }
     ],
-    "skeleton_image": {
-        "bpp": 8,
-        "w": 400,
-        "h": 500,
-        "image": "base64_encoded_skeleton_image"
-    },
+    "latent_template": "base64 encoded data",
     "quality": {
-        "emi": 90,
-        "iql": 85,
-        "nfiq2": 2
+        "emi": 0
+    },
+    "status": {
+        "success": true
     }
 }
+
 ----
 
 * Error Response
@@ -1030,6 +1190,284 @@ curl -k -X PUT --header 'Content-Type: application/json' --header 'Accept: appli
 - The `manual_minutiae` array allows the inclusion of manually provided minutiae points.
 - The `latent_template` and `inner_templates` fields contain the extracted biometric data in base64 encoding.
 - The response includes quality metrics and optional image data, which can be used for further processing or analysis.
+
+
+=== Tenprint Extraction API
+
+Extracts biometric template data from a given tenprint image and returns it as part of the response.
+
+* Path
+
+    /paro/v1/extract/tenprint
+
+* Method
+
+    PUT
+
+* Path Parameters
+
+    NIL
+
+* Query Parameters
+
+    NIL
+
+* Data Parameters
+
+** Required
++
+[source,ini]
+----
+job_id: [string]
+response_endpoint: [string]
+job_timeout_milli: [integer] <int64>
+id: [string]
+algorithm: [lfml|elfml|nfv3|ht]
+quality_only: [boolean]
+tenprint_images: [array of objects]
+  - image_format: [wsq|jpg|jp2|tiff|png|bmp|raw]
+    image_width: [integer <int32>] (only required for raw image format)
+    image_height: [integer <int32>] (only required for raw image format)
+    position: [string]
+    ppi: [integer <int32>]
+      Enum: [500|1000]
+    black_on_white: [boolean]
+    amputated_fingers: [string]
+    crop_details: [array of objects]
+      - finger_position: [string]
+        amputation: [boolean]
+        center: [string]
+        rectangle: [object]
+          lower_left: [string]
+          lower_right: [string]
+          upper_left: [string]
+          upper_right: [string]
+        angle: [integer <int32>]
+    edited_nec_inner_template: [string <byte>]
+    edited_efs_type9_template: [string <byte>]
+    image: [string <byte>]
+----
+
+** Optional
++
+[source,ini]
+----
+send_cropped_images: [boolean]
+send_skeleton_images: [boolean]
+sequence_check_params:
+  mode: [string]
+    Enum: [check|skip]
+  finger: [object]
+    duplicate_check_threshold: [integer <int32>]
+    roll_quality_threshold: [integer <int32>]
+    sequence_check_threshold: [integer <int32>]
+    sequence_check_threshold_little: [integer <int32>]
+    slap_confidence_threshold: [integer <int32>]
+    slap_hand_confidence_threshold: [integer <int32>]
+  palm: [object]
+    four_fingers_zone_percent_in_palm: [integer <int32>]
+    finger_palm_match_score_threshold: [integer <int32>]
+    upper_crop_mode: [string]
+    upper_lower_crop_zone_percent: [integer <int32>]
+    upper_lower_match_score_threshold: [integer <int32>]
+    upper_lower_match_sumscore_threshold: [string]
+efs_data: [string <byte>]
+extract_url_part: [string]
+----
+
+** Sample JSON
++
+[source,json]
+----
+{
+    "job_id": "example-job-id",
+    "response_endpoint": "http://HostName/receiveAPI",
+    "job_timeout_milli": 10000,
+    "id": "example-tenprint-id",
+    "algorithm": "lfml",
+    "quality_only": true,
+    "tenprint_images": [
+        {
+            "image_format": "wsq",
+            "image_width": 400,
+            "image_height": 500,
+            "position": "roll_left_index",
+            "ppi": 500,
+            "black_on_white": true,
+            "amputated_fingers": "none",
+            "crop_details": [
+                {
+                    "finger_position": "roll_left_index",
+                    "amputation": false,
+                    "center": "center-coordinates",
+                    "rectangle": {
+                        "lower_left": "lower-left-coordinates",
+                        "lower_right": "lower-right-coordinates",
+                        "upper_left": "upper-left-coordinates",
+                        "upper_right": "upper-right-coordinates"
+                    },
+                    "angle": 0
+                }
+            ],
+            "edited_nec_inner_template": "base64_encoded_nec_template",
+            "edited_efs_type9_template": "base64_encoded_efs_template",
+            "image": "base64_encoded_image"
+        }
+    ],
+    "send_cropped_images": true,
+    "send_skeleton_images": true,
+    "sequence_check_params": {
+        "mode": "check",
+        "finger": {
+            "duplicate_check_threshold": 10,
+            "roll_quality_threshold": 15,
+            "sequence_check_threshold": 20,
+            "sequence_check_threshold_little": 5,
+            "slap_confidence_threshold": 25,
+            "slap_hand_confidence_threshold": 30
+        },
+        "palm": {
+            "four_fingers_zone_percent_in_palm": 50,
+            "finger_palm_match_score_threshold": 75,
+            "upper_crop_mode": "auto",
+            "upper_lower_crop_zone_percent": 60,
+            "upper_lower_match_score_threshold": 80,
+            "upper_lower_match_sumscore_threshold": "90"
+        }
+    },
+    "efs_data": "base64_encoded_efs_data",
+    "extract_url_part": "example-url-part"
+}
+----
+
+* Success Response
+
+** Code: 200
+** Content
++
+[source,json]
+----
+{
+    "status": {
+        "success": true,
+        "code": "200",
+        "error": "",
+        "error_detail": ""
+    },
+    "job_id": "example-job-id",
+    "id": "example-tenprint-id",
+    "card_templates": [
+        {
+            "card_template": "base64_encoded_card_template",
+            "roll": true,
+            "inner_templates": [
+                {
+                    "index": 0,
+                    "minutiae_count": 150,
+                    "data": "base64_encoded_inner_template",
+                    "algorithm": "lfml"
+                }
+            ],
+            "pattern_info": [
+                {
+                    "finger_position": "roll_left_index",
+                    "primary_pattern": "whorl",
+                    "secondary_pattern": "loop"
+                }
+            ]
+        }
+    ],
+    "finger_quality_info": [
+        {
+            "finger_position": "roll_left_index",
+            "quality": {
+                "emi": 90,
+                "iql": 85,
+                "nfiq2": 80
+            }
+        }
+    ],
+    "finger_templates": [
+        {
+            "finger_position": "roll_left_index",
+            "quality": {
+                "emi": 90,
+                "iql": 85,
+                "nfiq2": 80
+            },
+            "finger_template": "base64_encoded_finger_template",
+            "primary_pattern": "whorl",
+            "secondary_pattern": "loop",
+            "skeleton_image": {
+                "bpp": 8,
+                "w": 400,
+                "h": 500,
+                "image": "base64_encoded_skeleton_image"
+            },
+            "inner_templates": [
+                {
+                    "index": 0,
+                    "minutiae_count": 150,
+                    "data": "base64_encoded_inner_template",
+                    "algorithm": "lfml"
+                }
+            ]
+        }
+    ],
+    "cropped_finger_images": [
+        {
+            "finger_position": "roll_left_index",
+            "cropped_image_format": "wsq",
+            "finger_image": "base64_encoded_cropped_image"
+        }
+    ],
+    "finger_crop_info": [
+        {
+            "finger_position": "roll_left_index",
+            "crop_type": "auto",
+            "crop_height": 500,
+            "crop_width": 400,
+            "angle": 0,
+            "center_x": 200,
+            "center_y": 250,
+            "lower_left_x": 150,
+            "lower_left_y": 200
+        }
+    ]
+}
+----
+
+* Error Response
+
+** Code: 406 NOT ACCEPTABLE
+** Content
++
+[source,json]
+----
+{
+    "status": {
+        "success": false,
+        "code": "406",
+        "error": "Invalid parameters.",
+        "error_detail": "Detailed error message"
+    }
+}
+----
+
+* Sample Call
++
+[source,bash]
+----
+curl -k -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' --data @json-file-name https://ip:port/paro/v1/extract/tenprint
+----
+  
+* Notes
++
+- `send_cropped_images` specifies whether cropped images should be included in the response.
+- The `manual_minutiae` array allows the inclusion of manually provided minutiae points.
+- The `card_templates`, `finger_templates`, and `inner_templates` fields contain the extracted biometric data in base64 encoding.
+- The response includes quality metrics and optional image data, which can be used for further processing or analysis.
+
 
 
 == Reseed Biometrics
