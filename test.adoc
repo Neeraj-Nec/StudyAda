@@ -870,7 +870,167 @@ NOTE: Future support.
 
 === Latent Palm
 
-NOTE: Future support.
+Extracts biometric template data from a given latent palm image and returns it as part of the response.
+
+* Path
+
+    /paro/v1/extract/palm/latent
+
+* Method
+
+    PUT
+
+* Path Parameters
+
+    NIL
+
+* Query Parameters
+
+    NIL
+
+* Data Parameters
+
+** Required
++
+[source,ini]
+----
+job_id: [string]
+response_endpoint: [string]
+job_timeout_milli: [integer] <int64>
+id: [string]
+algorithm: [lfml|elfml|nfv3|ht]
+image_format: [wsq|jpg|jp2|tiff|png|bmp|raw]
+roi: [string <byte>]
+----
+
+** Optional
++
+[source,ini]
+----
+edited_nec_inner_template: [string <byte>]
+edited_efs_type9_template: [string <byte>]
+palm_parameters:
+  rotation: [integer <int32>]
+latent_image: [string <byte>]
+image_width: [integer <int32>] (only required for raw image format)
+image_height: [integer <int32>] (only required for raw image format)
+ppi: [integer <int32>]
+  Enum: [500|1000]
+black_on_white: [boolean]
+  Enum: [true|false]
+send_skeleton_images: [boolean]
+manual_minutiae: [array of objects]
+  - x: [integer <int32>]
+    y: [integer <int32>]
+    angle: [integer <int32>]
+    type: [integer <int32>]
+efs_data: [string <byte>]
+extract_url_part: [string]
+----
+
+** Sample JSON
++
+[source,json]
+----
+{
+    "job_id": "example-job-id",
+    "response_endpoint": "http://HostName/receiveAPI",
+    "job_timeout_milli": 10000,
+    "id": "example-palm-id",
+    "algorithm": "lfml",
+    "edited_nec_inner_template": "example-nec-template",
+    "edited_efs_type9_template": "example-efs-template",
+    "palm_parameters": {
+        "rotation": 45
+    },
+    "latent_image": "base64_encoded_image",
+    "image_format": "wsq",
+    "image_width": 400,
+    "image_height": 500,
+    "ppi": 500,
+    "black_on_white": true,
+    "roi": "example-roi",
+    "send_skeleton_images": true,
+    "manual_minutiae": [
+        {
+            "x": 150,
+            "y": 200,
+            "angle": 90,
+            "type": 1
+        }
+    ],
+    "efs_data": "example-efs-data",
+    "extract_url_part": "example-url-part"
+}
+----
+
+* Success Response
+
+** Code: 200
+** Content
++
+[source,json]
+----
+{
+    "status": {
+        "success": true,
+        "code": "200",
+        "error": "",
+        "error_detail": ""
+    },
+    "job_id": "example-job-id",
+    "id": "example-palm-id",
+    "latent_template": "base64_encoded_latent_template",
+    "palm_position": "palm_right_full",
+    "inner_templates": [
+        {
+            "index": 0,
+            "minutiae_count": 100,
+            "data": "base64_encoded_inner_template",
+            "algorithm": "lfml"
+        }
+    ],
+    "skeleton_image": {
+        "bpp": 8,
+        "w": 400,
+        "h": 500,
+        "image": "base64_encoded_skeleton_image"
+    },
+    "quality": 85
+}
+----
+
+* Error Response
+
+** Code: 406 NOT ACCEPTABLE
+** Content
++
+[source,json]
+----
+{
+    "status": {
+        "success": false,
+        "code": "406",
+        "error": "Invalid parameters.",
+        "error_detail": "Detailed error message"
+    }
+}
+----
+
+* Sample Call
++
+[source,bash]
+----
+curl -k -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' --data @json-file-name https://ip:port/paro/v1/extract/palm/latent
+----
+
+* Notes
++
+- `send_skeleton_images` specifies whether skeleton images should be included in the response.
+- The `manual_minutiae` array allows the inclusion of manually provided minutiae points.
+- The `latent_template` and `inner_templates` fields contain the extracted biometric data in base64 encoding.
+- The response includes quality metrics and optional image data, which can be used for further processing or analysis.
+
 
 == Reseed Biometrics
 
